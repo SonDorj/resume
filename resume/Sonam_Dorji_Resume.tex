@@ -1,0 +1,148 @@
+% ============================================================
+% Sonam Dorji - ATS-Friendly Resume
+% Compile with: pdflatex Sonam_Dorji_Resume.tex   (MiKTeX)
+% ------------------------------------------------------------
+% ATS-safety / industry-standard choices made in this template:
+%   - Single column, no tables/text boxes/graphics/icons/photos
+%   - Standard, parser-friendly section names (Summary, Experience,
+%     Skills, Education) in reverse-chronological order
+%   - Industry-standard sans-serif font (Helvetica/Arial-equivalent)
+%   - No headers/footers/page numbers, no multi-column layout
+%   - Plain text bullets (real \item, not unicode glyphs/icons)
+%   - Real, working hyperlinks + embedded PDF metadata (title/author)
+%   - Professional filename: FirstName_LastName_Resume
+%   - Fits one page, 0.65in margins, 10pt body text
+% ============================================================
+
+\documentclass[10pt,a4paper]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=0.6in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{helvet}                  % Helvetica/Arial-equivalent, ATS-standard, bundled with LaTeX core
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{ragged2e}
+\usepackage{microtype}               % fixes minor overfull/underfull lines via font protrusion
+
+% PDF metadata -- helps ATS/recruiter tools identify the document correctly
+\hypersetup{
+  pdftitle={Sonam Dorji - Resume},
+  pdfauthor={Sonam Dorji},
+  pdfsubject={Resume - Java Backend \& Cloud Platform Engineer},
+  pdfkeywords={Java, Spring Boot, REST API, Microservices, OAuth, Apigee X, Kubernetes, Docker, Rancher, GCP, Kafka, Oracle, CI/CD, Resume}
+}
+
+% ---------- General formatting ----------
+\pagestyle{empty}                    % no headers/footers/page numbers
+\setlength{\parindent}{0pt}
+\RaggedRight
+\linespread{1.0}
+
+% Section formatting: bold heading, then a thin rule a short gap below it
+\titleformat{\section}
+  {\bfseries\large}
+  {}{0em}{}
+  [\vspace{2pt}\titlerule]
+\titlespacing*{\section}{0pt}{6pt}{3pt}
+
+% Tight, consistent list spacing
+\setlist[itemize]{leftmargin=1.15em, itemsep=0.5pt, topsep=1pt, parsep=0pt, label=\textbullet}
+
+% ---------- Helper commands (plain text flow, no tables) ----------
+
+% \cventry{Title}{Organization}{Location}{Dates}
+\newcommand{\cventry}[4]{%
+  \noindent\textbf{#1}\hfill\textbf{#4}\\
+  \textit{#2}\hfill\textit{#3}\\[2pt]%
+}
+
+% \skillrow{Category}{Items}
+\newcommand{\skillrow}[2]{%
+  \textbf{#1:} #2 \par\vspace{1pt}%
+}
+
+\begin{document}
+
+% ============================================================
+% HEADER
+% ============================================================
+\begin{center}
+  {\LARGE \bfseries Sonam Dorji}\\[3pt]
+  {\large Software Development Consultant I -- Java Backend \& Cloud Platform Engineer}\\[4pt]
+  \small
+  Bangalore, India
+  \;\textbar\;
+  \href{mailto:Sonam.Dorji@lumen.com}{Sonam.Dorji@lumen.com}
+  \;\textbar\;
+  +91 8091784778
+  \;\textbar\;
+  \href{https://linkedin.com/in/SonDorj}{linkedin.com/in/SonDorj}
+  \;\textbar\;
+  \href{https://github.com/SonDorj}{github.com/SonDorj}
+\end{center}
+
+\vspace{-4pt}
+
+% ============================================================
+% SUMMARY
+% ============================================================
+\section{Professional Summary}
+Java backend engineer with 3+ years delivering distributed, enterprise-scale systems for telecom service-assurance and public-safety (PSAP) platforms. Designs and ships Spring Boot REST APIs, OAuth-secured microservice integrations, and Kafka-based event processing; leads Kubernetes/Rancher and Apigee X cloud migrations to GCP; and owns production incident resolution for platforms supporting 500+ enterprise customers and 1.5M+ service records. Proven record modernizing legacy systems and shipping 100+ production pull requests while preserving business-critical functionality.
+
+% ============================================================
+% EXPERIENCE
+% ============================================================
+\section{Professional Experience}
+
+\cventry{Software Development Consultant I -- Java Backend \& Cloud Platform Engineer}{Lumen Technologies}{Bangalore, India}{July 2023 -- Present}
+\begin{itemize}
+  \item Built and enhanced backend APIs for an AI-assisted incident-management platform's feedback loop, delivering new capabilities that improved structured feedback capture and supported operational workflow optimization.
+  \item Designed and delivered REST APIs and OAuth/Apigee-secured service integrations for an enterprise ticketing and public-safety (PSAP) platform, enabling new ticket-creation workflows and SLA-aware case notifications for mobile and partner clients.
+  \item Diagnosed and resolved high-priority production incidents -- including API response-mapping defects, SSL/TLS handshake failures, and SQL pagination issues -- restoring correct case data and improving platform reliability during active cloud migrations.
+  \item Led rehosting of service-assurance microservices from legacy Kubernetes to Rancher across 7 environments, and validated GKE/GCP migration readiness, reducing infrastructure risk during platform modernization.
+  \item Re-architected a partner-integration service from synchronous to asynchronous API processing, eliminating Kafka queue-backlog risk and preventing cascading delays when downstream vendor systems degraded.
+  \item Migrated enterprise REST services to Apigee X, including proxy/product onboarding and OAuth/JWT security configuration, advancing API-gateway modernization while preserving backward compatibility for existing integrations.
+  \item Built notification and reporting enhancements supporting 500+ enterprise customers and 1.5M+ service-inventory records, and authored 100+ merged pull requests across enterprise Java microservices.
+\end{itemize}
+
+% ============================================================
+% KEY PROJECTS
+% ============================================================
+\section{Key Projects}
+
+\textbf{IncidentAI -- AI-Assisted Incident Management} -- Built backend APIs for the platform's feedback loop, enabling structured feedback capture, workflow optimization, and operational readiness.
+
+\vspace{1pt}
+\textbf{Ticketing \& GCR Platform Modernization} -- Delivered REST/OAuth API integrations, InfoArchive/Documentum migration support, and production defect resolution for a core enterprise ticketing and case-management platform.
+
+\vspace{1pt}
+\textbf{PSAP Dashboard} -- Built bulk compliance-update, attachment, and SLA-aware notification workflows for public-safety case management, spanning UI, service, and permission layers.
+
+\vspace{1pt}
+\textbf{Partner Integration \& Messaging} -- Redesigned a synchronous partner-integration service into asynchronous, Kafka-resilient processing, and migrated it to OAuth-secured Apigee endpoints without breaking existing contracts.
+
+\vspace{1pt}
+\textbf{Cloud \& Platform Migration} -- Led Kubernetes-to-Rancher rehosting, GKE/GCP migration validation, and Datadog observability rollout across multiple enterprise environments.
+
+% ============================================================
+% SKILLS
+% ============================================================
+\section{Technical Skills}
+\skillrow{Languages}{Java, SQL / PL-SQL, JavaScript, Shell}
+\skillrow{Frameworks, APIs \& Data}{Spring, Spring Boot, REST APIs (RESTv2/RESTv3), Microservices, EJB, Oracle, SQL Server, Cassandra (DSE)}
+\skillrow{Cloud \& DevOps}{Kubernetes, Rancher, GKE, GCP, Docker, Apigee X, CI/CD, GitHub}
+\skillrow{Integration \& Messaging}{Kafka (Confluent), OAuth 2.0, JWT, Documentum, InfoArchive}
+\skillrow{AI \& Platform Tooling}{AI-Assisted Workflows, Feedback/Metrics Pipelines, Operational Tooling}
+\skillrow{Monitoring \& Practices}{Datadog, AppDynamics, Splunk, Production Support, Incident Resolution, System Modernization}
+
+% ============================================================
+% EDUCATION
+% ============================================================
+\section{Education}
+\cventry{Bachelor of Engineering in Computer Science and Engineering}{Visvesvaraya Technological University}{CGPA: 8.51/10}{2019--2023}
+
+\end{document}
